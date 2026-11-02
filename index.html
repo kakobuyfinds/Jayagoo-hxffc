@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2446ed">
+  <title>Jayagoo Spreadsheet | Build a Better Fashion Shortlist</title>
+  <meta name="description" content="Explore Jayagoo spreadsheet research with a category directory, outfit planning notes, sizing checks and a practical shortlist method. Discover more at CAFANS.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Jayagoo Spreadsheet — Make Every Find Count">
+  <meta property="og:description" content="A practical fashion discovery guide: browse ten categories, compare the details and turn scattered finds into a considered shortlist.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Jayagoo Spreadsheet — Make Every Find Count">
+  <meta name="twitter:description" content="Category shortcuts, outfit planning and clear comparison notes for your next fashion shortlist.">
+  <!-- index.html | Add a self-referencing canonical once the final hosting URL is known. -->
+  <!--
+    Primary keyword: Jayagoo spreadsheet
+    Secondary keywords:
+    Jayagoo finds; Jayagoo shopping guide; Jayagoo product list;
+    Jayagoo clothing spreadsheet; Jayagoo sneaker spreadsheet
+    Related research phrases appear in the visible research section.
+    They are editorial topic suggestions, not measured search-volume claims.
+  -->
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="//sg.louisvuitton.com">
+  <link rel="dns-prefetch" href="//media.gucci.com">
+  <link rel="dns-prefetch" href="//assets.hermes.com">
+  <style>
+    :root{
+      --blue:#2446ed;
+      --ink:#151b38;
+      --muted:#59617c;
+      --line:#dbe0ef;
+      --paper:#f3f5fc;
+      --white:#fff;
+      --pink:#ffe0eb;
+      --yellow:#ffed9a;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    html{color-scheme:light}
+    body{
+      margin:0;background:var(--paper);color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,summary:focus-visible{
+      outline:3px solid var(--blue);outline-offset:5px
+    }
+    a,summary{-webkit-tap-highlight-color:transparent}
+    img{display:block;max-width:100%;height:auto}
+    figure,p,h1,h2,h3{margin:0}
+    h1,h2,h3{line-height:1.12;letter-spacing:-.045em}
+    h2{font-size:clamp(1.9rem,4vw,3.2rem)}
+    h3{font-size:1.2rem;letter-spacing:-.025em}
+    p+p{margin-top:1rem}
+    .wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .masthead{background:var(--white);border-bottom:1px solid var(--line)}
+    .masthead-inner{
+      min-height:82px;display:flex;justify-content:space-between;
+      align-items:center;gap:20px
+    }
+    .logo{font-size:1.45rem;font-weight:900;letter-spacing:-.07em}
+    .logo span{color:var(--blue)}
+    .masthead-note{font-size:.76rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+    .top-link{font-size:.88rem;font-weight:700;border-bottom:2px solid var(--blue);padding:7px 0}
+    .category-section{padding:25px 0 30px;background:var(--white)}
+    .category-title{
+      display:flex;justify-content:space-between;gap:12px;
+      font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;
+      color:var(--muted);margin-bottom:12px
+    }
+    .categories{display:flex;flex-wrap:wrap;gap:8px}
+    .categories a{
+      background:var(--paper);border:1px solid var(--line);border-radius:6px;
+      padding:10px 15px;font-size:.84rem;font-weight:700;
+      display:flex;align-items:center;gap:15px
+    }
+    .categories a::after{content:"↗";color:var(--blue)}
+    .categories a:hover{background:var(--blue);border-color:var(--blue);color:white}
+    .categories a:hover::after{color:white}
+    .hero{background:var(--blue);color:white;overflow:hidden}
+    .hero-inner{padding:64px 0 0}
+    .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;font-weight:700}
+    .hero .eyebrow{color:#d3dcff}
+    .hero-heading{
+      display:grid;grid-template-columns:1.5fr 1fr;gap:65px;
+      align-items:end;margin:25px 0 42px
+    }
+    h1{font-size:clamp(3.4rem,7.9vw,6.6rem);font-weight:900;max-width:800px}
+    h1 span{color:var(--yellow)}
+    .hero-copy p{color:#e1e7ff;font-size:1.05rem}
+    .button{
+      display:inline-flex;align-items:center;justify-content:space-between;
+      gap:32px;padding:14px 20px;background:var(--ink);color:white;
+      border:1px solid transparent;border-radius:6px;font-size:.9rem;font-weight:700
+    }
+    .button:hover{background:#303a61}
+    .hero .button{margin-top:23px;background:var(--yellow);color:var(--ink)}
+    .hero .button:hover{background:white}
+    .feature{
+      display:grid;grid-template-columns:1.4fr 1fr;background:white;color:var(--ink);
+      border-radius:var(--radius) var(--radius) 0 0;overflow:hidden
+    }
+    .feature-photo{position:relative;background:#e8e9ec;min-height:350px}
+    .feature-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+    .photo-label{
+      position:absolute;left:20px;bottom:20px;background:white;
+      padding:7px 12px;border-radius:4px;font-size:.73rem;font-weight:700
+    }
+    .feature-text{padding:35px;display:flex;flex-direction:column;justify-content:center}
+    .tag{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:700}
+    .feature-text h2{font-size:clamp(1.8rem,3.2vw,2.7rem);margin:14px 0}
+    .feature-text p{font-size:.93rem;color:var(--muted)}
+    .section{padding:76px 0}
+    .intro-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:65px}
+    .intro-label{font-size:.78rem;color:var(--blue);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+    .answer{font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.6;letter-spacing:-.02em}
+    .small{font-size:.82rem;color:var(--muted)}
+    .intro-grid .small{margin-top:20px}
+    .section-head{
+      display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:30px
+    }
+    .section-head p{max-width:370px;color:var(--muted);font-size:.93rem}
+    .section-head .eyebrow{color:var(--blue);margin-bottom:12px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .visual-card{background:white;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .visual-frame{aspect-ratio:1/1;background:#eeeef0;overflow:hidden}
+    .visual-frame img{width:100%;height:100%;object-fit:contain}
+    .visual-card:first-child .visual-frame img{object-fit:cover}
+    .visual-copy{padding:23px}
+    .visual-copy .tag{display:block;margin-bottom:10px}
+    .visual-copy p{font-size:.88rem;color:var(--muted);margin-top:12px}
+    .visual-copy a{display:inline-block;margin-top:16px;font-size:.85rem;font-weight:700;color:var(--blue)}
+    .caption{margin-top:16px;font-size:.78rem;color:var(--muted)}
+    .planner{background:var(--ink);color:white}
+    .planner .section-head p{color:#bcc4df}
+    .planner .eyebrow{color:var(--yellow)}
+    .routes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#41475f;border:1px solid #41475f}
+    .route{background:var(--ink);padding:30px}
+    .route-number{font-size:2.4rem;color:var(--yellow);font-weight:800;line-height:1;margin-bottom:30px}
+    .route h3{font-size:1.5rem;margin-bottom:14px}
+    .route p{color:#c4cbe1;font-size:.91rem}
+    .route a{display:inline-block;margin-top:24px;color:var(--yellow);font-weight:700;font-size:.85rem}
+    .comparison{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:start}
+    .comparison h2{margin:12px 0 20px}
+    .comparison>div>p{color:var(--muted)}
+    .decision-list{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+    .decision-list li{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .decision-list strong{font-size:.9rem}
+    .decision-list span{font-size:.9rem;color:var(--muted)}
+    .example{
+      background:var(--pink);border-left:4px solid var(--blue);
+      padding:23px;margin-top:28px;border-radius:0 8px 8px 0;font-size:.9rem
+    }
+    .terms-section{background:#e7ecff}
+    .terms{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .term-group{background:white;border-radius:var(--radius);padding:27px}
+    .term-group h3{margin-bottom:17px}
+    .term-group ul{padding-left:18px;margin:0;color:var(--muted);font-size:.87rem}
+    .term-group li{margin:7px 0}
+    .faq-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:65px}
+    .faq-layout h2{margin-top:12px}
+    details{border-bottom:1px solid var(--line)}
+    details:first-child{border-top:1px solid var(--line)}
+    summary{padding:21px 30px 21px 0;cursor:pointer;font-weight:700;line-height:1.45}
+    details p{padding:0 0 23px;color:var(--muted);font-size:.92rem}
+    .closing{
+      display:flex;justify-content:space-between;align-items:center;gap:30px;
+      background:var(--yellow);padding:38px;border-radius:var(--radius);margin-bottom:65px
+    }
+    .closing h2{font-size:clamp(1.7rem,3vw,2.5rem)}
+    .closing p{margin-top:12px;max-width:590px;font-size:.92rem}
+    footer{background:white;border-top:1px solid var(--line);padding:32px 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;gap:40px}
+    footer p{font-size:.76rem;color:var(--muted);max-width:680px}
+    @media(min-width:1600px){.wrap{width:min(1280px,calc(100% - 80px))}}
+    @media(max-width:850px){
+      .masthead-note{display:none}
+      .hero-heading{grid-template-columns:1fr;gap:25px}
+      .hero-copy{max-width:620px}
+      .feature{grid-template-columns:1fr 1fr}
+      .feature-photo{min-height:310px}
+      .intro-grid,.comparison,.faq-layout{grid-template-columns:1fr;gap:25px}
+      .gallery{gap:12px}
+      .visual-copy{padding:18px}
+      .routes,.terms{grid-template-columns:1fr}
+      .route{display:grid;grid-template-columns:55px 1fr;column-gap:20px}
+      .route-number{grid-row:1/4;margin:0}
+      .route a{margin-top:16px}
+      .closing{align-items:start;flex-direction:column}
+    }
+    @media(max-width:580px){
+      .wrap{width:calc(100% - 30px)}
+      .masthead-inner{min-height:70px}
+      .logo{font-size:1.2rem}
+      .top-link{font-size:.78rem}
+      .category-title span:last-child{display:none}
+      .categories{gap:6px}
+      .categories a{font-size:.74rem;padding:9px 11px;gap:9px}
+      .hero-inner{padding-top:40px}
+      .hero-heading{margin-top:18px;margin-bottom:30px}
+      h1{font-size:clamp(2.9rem,12vw,4.3rem)}
+      .feature{grid-template-columns:1fr}
+      .feature-photo{min-height:260px}
+      .feature-text{padding:25px}
+      .section{padding:50px 0}
+      .section-head{display:block}
+      .section-head p{margin-top:18px}
+      .gallery{grid-template-columns:1fr}
+      .visual-frame{aspect-ratio:4/3}
+      .visual-frame img{object-fit:contain}
+      .decision-list li{grid-template-columns:1fr;gap:6px}
+      .closing{padding:27px;margin-bottom:45px}
+      .closing .button{width:100%}
+      .footer-inner{flex-direction:column;gap:18px}
+    }
+    @media(prefers-reduced-motion:no-preference){
+      .button,.categories a{transition:background-color .15s,color .15s}
+    }
+    @media print{
+      body{background:white;color:black}
+      .hero,.planner{background:white;color:black}
+      .hero-copy p,.route p{color:black}
+      .feature-photo,.gallery,.button{display:none}
+      .hero-heading,.feature,.intro-grid,.comparison,.faq-layout{display:block}
+      .section{padding:25px 0}
+      details p{display:block}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "@id":"#webpage",
+        "name":"Jayagoo Spreadsheet | Build a Better Fashion Shortlist",
+        "description":"An independent fashion discovery guide with category shortcuts, outfit planning and practical shortlist checks.",
+        "inLanguage":"en",
+        "about":{"@type":"Thing","name":"Jayagoo spreadsheet"},
+        "keywords":[
+          "Jayagoo spreadsheet",
+          "Jayagoo finds",
+          "Jayagoo shopping guide",
+          "Jayagoo product list",
+          "Jayagoo clothing spreadsheet",
+          "Jayagoo sneaker spreadsheet"
+        ],
+        "hasPart":[{"@id":"#category-directory"},{"@id":"#questions"}]
+      },
+      {
+        "@type":"ItemList",
+        "@id":"#category-directory",
+        "name":"CAFANS fashion category directory",
+        "numberOfItems":10,
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Shoes","url":"https://cafans.com/category-911-Shoes.html"},
+          {"@type":"ListItem","position":2,"name":"Hoodies/Sweaters","url":"https://cafans.com/category-912-Hoodies%2FSweaters.html"},
+          {"@type":"ListItem","position":3,"name":"T-Shirts","url":"https://cafans.com/category-913-T-Shirts.html"},
+          {"@type":"ListItem","position":4,"name":"Jackets","url":"https://cafans.com/category-914-Jackets.html"},
+          {"@type":"ListItem","position":5,"name":"Pants/Shorts","url":"https://cafans.com/category-915-Pants%2FShorts.html"},
+          {"@type":"ListItem","position":6,"name":"Headwear","url":"https://cafans.com/category-916-Headwear.html"},
+          {"@type":"ListItem","position":7,"name":"Sets","url":"https://cafans.com/category-917-Sets.html"},
+          {"@type":"ListItem","position":8,"name":"Underwear/underpants","url":"https://cafans.com/category-918-underwear%2Funderpants.html"},
+          {"@type":"ListItem","position":9,"name":"Jersey","url":"https://cafans.com/category-919-Jersey.html"},
+          {"@type":"ListItem","position":10,"name":"Accessories","url":"https://cafans.com/category-920-Accessories.html"}
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"#questions",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"What does Jayagoo spreadsheet mean on this page?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Here, Jayagoo spreadsheet is the search topic for an independent fashion research guide. This page offers category shortcuts and comparison advice; it does not host an official Jayagoo spreadsheet or a downloadable product database."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"How should I organize a Jayagoo product list?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Use one row per exact product variant. Record its source URL, category, color, selected size, measurements, displayed price and currency, date checked and any unresolved questions."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Can a brand photograph confirm a listing is authentic?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No. A brand photograph is a visual reference, not evidence of a seller's inventory or a particular item's authenticity. Check the seller, item-specific evidence and purchase terms separately."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"How do I estimate the total cost of a shortlist?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Add item prices, domestic delivery, any service fees, international shipping and applicable taxes or duties. Record unknown charges as unknown rather than zero, and confirm the final amount before paying."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Where do the category links lead?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"The category links open their specified CAFANS category pages. General discovery buttons open https://www.cafans.com."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/Jayagoo-hxffc/">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="logo" href="https://www.cafans.com" aria-label="Visit www.cafans.com">www.<span>cafans</span>.com</a>
+      <span class="masthead-note">The considered shortlist</span>
+      <a class="top-link" href="https://www.cafans.com">Discover CAFANS ↗</a>
+    </div>
+  </header>
+
+  <section class="category-section" aria-labelledby="category-heading">
+    <div class="wrap">
+      <div class="category-title">
+        <h2 id="category-heading" style="font:inherit;letter-spacing:inherit">Start with your category</h2>
+        <span>10 direct routes to CAFANS</span>
+      </div>
+      <nav class="categories" aria-label="Shop by category">
+        <a href="https://cafans.com/category-911-Shoes.html">Shoes</a>
+        <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters</a>
+        <a href="https://cafans.com/category-913-T-Shirts.html">T-Shirts</a>
+        <a href="https://cafans.com/category-914-Jackets.html">Jackets</a>
+        <a href="https://cafans.com/category-915-Pants%2FShorts.html">Pants/Shorts</a>
+        <a href="https://cafans.com/category-916-Headwear.html">Headwear</a>
+        <a href="https://cafans.com/category-917-Sets.html">Sets</a>
+        <a href="https://cafans.com/category-918-underwear%2Funderpants.html">Underwear/underpants</a>
+        <a href="https://cafans.com/category-919-Jersey.html">Jersey</a>
+        <a href="https://cafans.com/category-920-Accessories.html">Accessories</a>
+      </nav>
+    </div>
+  </section>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Fashion discovery / A more useful way to browse</p>
+        <div class="hero-heading">
+          <h1 id="page-title">Jayagoo spreadsheet.<br><span>Make every find count.</span></h1>
+          <div class="hero-copy">
+            <p>Give your next outfit a clear starting point. Browse by category, notice the details and save the pieces that earn their place in your wardrobe.</p>
+            <a class="button" href="https://www.cafans.com">Explore fashion finds <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="feature">
+          <figure class="feature-photo">
+            <img
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=78"
+              alt="Red Nike athletic shoe showing the side profile and sole"
+              width="1000" height="700" fetchpriority="high" decoding="async">
+            <figcaption class="photo-label">NIKE / Footwear reference</figcaption>
+          </figure>
+          <div class="feature-text">
+            <span class="tag">The shortlist principle</span>
+            <h2>Choose a role before choosing a product.</h2>
+            <p>A daily sneaker, a light layer or a finishing accessory: define what you need first. Then compare fit, materials and total cost against that job.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="meaning-heading">
+      <div class="wrap intro-grid">
+        <h2 id="meaning-heading" class="intro-label">A quick answer</h2>
+        <div>
+          <p class="answer"><strong>Jayagoo spreadsheet</strong> is the search topic for this independent fashion research guide. Use the category directory and planning notes to organize product links, compare exact variants and build a manageable shortlist.</p>
+          <p class="small">This page does not host an official Jayagoo spreadsheet, a live inventory feed or a downloadable product database. “Jayagoo” is retained as the requested search term; no relationship with a similarly named service is assumed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" aria-labelledby="detail-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The detail edit</p>
+            <h2 id="detail-heading">Small pieces.<br>Different decisions.</h2>
+          </div>
+          <p>Shape, scale and finish deserve their own notes. A useful product list records more than a name and a picture.</p>
+        </div>
+        <div class="gallery">
+          <article class="visual-card">
+            <figure class="visual-frame">
+              <img
+                src="https://sg.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-league-cap--M5068L_PM1_Worn%20view.jpg"
+                alt="Louis Vuitton LV League cap styled as a headwear reference"
+                width="600" height="600" loading="lazy" decoding="async">
+            </figure>
+            <div class="visual-copy">
+              <span class="tag">Louis Vuitton / Headwear</span>
+              <h3>Look at the silhouette.</h3>
+              <p>Record crown shape, brim proportions and the stated fit range. Compare those details with a cap you already wear comfortably.</p>
+              <a href="https://cafans.com/category-916-Headwear.html">Explore headwear ↗</a>
+            </div>
+          </article>
+          <article class="visual-card">
+            <figure class="visual-frame">
+              <img
+                src="https://media.gucci.com/style/DarkGray_Center_0_0_490x245/1792137609/455535_J8400_0811_015_100_0000_Light-gucci-interlocking-pendant-necklace.jpg"
+                alt="Gucci Interlocking pendant necklace as a jewelry reference"
+                width="600" height="600" loading="lazy" decoding="async">
+            </figure>
+            <div class="visual-copy">
+              <span class="tag">Gucci / Jewelry</span>
+              <h3>Measure the finishing touch.</h3>
+              <p>Chain length and pendant dimensions affect how jewelry sits with a neckline. Save the exact measurements alongside the selected finish.</p>
+              <a href="https://cafans.com/category-920-Accessories.html">Explore accessories ↗</a>
+            </div>
+          </article>
+          <article class="visual-card">
+            <figure class="visual-frame">
+              <img
+                src="https://assets.hermes.com/is/image/hermesproduct/451592S%2002_flat_wm_103?%24product_default_bg%24=&amp;align=0%2C0&amp;extend=0%2C0%2C0%2C0"
+                alt="Hermès printed silk scarf as a clothing accessory reference"
+                width="600" height="600" loading="lazy" decoding="async">
+            </figure>
+            <div class="visual-copy">
+              <span class="tag">Hermès / Textile accessories</span>
+              <h3>Plan the color connection.</h3>
+              <p>Consider how a print works with your existing clothing. Keep fabric composition, dimensions and care requirements with your outfit notes.</p>
+              <a href="https://cafans.com/category-920-Accessories.html">Discover finishing pieces ↗</a>
+            </div>
+          </article>
+        </div>
+        <p class="caption">Brand photographs are visual references from external image hosts, not verified CAFANS stock or endorsements. Images alone do not establish the authenticity of a separate listing. Brand names belong to their respective owners.</p>
+      </div>
+    </section>
+
+    <section class="section planner" aria-labelledby="route-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Jayagoo shopping guide</p>
+            <h2 id="route-heading">Pick your starting point.</h2>
+          </div>
+          <p>Three ways to turn Jayagoo finds into a focused shopping session.</p>
+        </div>
+        <div class="routes">
+          <article class="route">
+            <div class="route-number" aria-hidden="true">01</div>
+            <h3>Replace a staple.</h3>
+            <p>Start with the item you wear most. Note its measurements and what you would improve: fit, weight, color or ease of care.</p>
+            <a href="https://cafans.com/category-913-T-Shirts.html">Start with T-shirts ↗</a>
+          </article>
+          <article class="route">
+            <div class="route-number" aria-hidden="true">02</div>
+            <h3>Build around a shoe.</h3>
+            <p>Use one sneaker as the anchor. Compare trouser openings and lengths so the full outfit works with the shoe’s proportions.</p>
+            <a href="https://cafans.com/category-911-Shoes.html">Start with shoes ↗</a>
+          </article>
+          <article class="route">
+            <div class="route-number" aria-hidden="true">03</div>
+            <h3>Add a useful layer.</h3>
+            <p>Choose for the weather and your usual base layer. Check chest width, sleeve length and room for movement before selecting a size.</p>
+            <a href="https://cafans.com/category-914-Jackets.html">Start with jackets ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="notes-heading">
+      <div class="wrap comparison">
+        <div>
+          <p class="eyebrow" style="color:var(--blue)">Jayagoo product list</p>
+          <h2 id="notes-heading">Write notes you can act on.</h2>
+          <p>A Jayagoo clothing spreadsheet or Jayagoo sneaker spreadsheet becomes more useful when every row describes one exact variant.</p>
+          <div class="example">
+            <strong>Example decision note</strong>
+            <p>“Navy layer for cool evenings; compare chest width with my current jacket; shipping estimate still needed.”</p>
+          </div>
+        </div>
+        <ul class="decision-list">
+          <li><strong>Exact item</strong><span>Source URL, product name, selected color, size and the date you checked the listing.</span></li>
+          <li><strong>Fit evidence</strong><span>Garment measurements or the relevant footwear size chart. Label sizes alone leave too much uncertainty.</span></li>
+          <li><strong>Material notes</strong><span>The seller’s stated composition, care instructions and any details that still need confirmation.</span></li>
+          <li><strong>Cost position</strong><span>Price and currency, delivery charges, service fees and taxes where applicable. Keep unknown amounts visible.</span></li>
+          <li><strong>Next action</strong><span>Request measurements, compare a second option, confirm returns or remove the item from the shortlist.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section terms-section" aria-labelledby="research-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Research vocabulary</p>
+            <h2 id="research-heading">Ask a more specific question.</h2>
+          </div>
+          <p>Thirty related research phrases, grouped by task. These are topic ideas, not claims about search volume or available stock.</p>
+        </div>
+        <div class="terms">
+          <section class="term-group" aria-labelledby="find-terms">
+            <h3 id="find-terms">Find a direction</h3>
+            <ul>
+              <li>Jayagoo fashion finds</li>
+              <li>Jayagoo category guide</li>
+              <li>Jayagoo outfit ideas</li>
+              <li>Jayagoo streetwear research</li>
+              <li>Jayagoo everyday essentials</li>
+              <li>Jayagoo sneaker finds</li>
+              <li>Jayagoo hoodie finds</li>
+              <li>Jayagoo T-shirt list</li>
+              <li>Jayagoo jacket guide</li>
+              <li>Jayagoo accessories list</li>
+            </ul>
+          </section>
+          <section class="term-group" aria-labelledby="compare-terms">
+            <h3 id="compare-terms">Compare the details</h3>
+            <ul>
+              <li>sneaker size chart comparison</li>
+              <li>hoodie chest measurement guide</li>
+              <li>T-shirt fabric composition</li>
+              <li>jacket layering measurements</li>
+              <li>pants inseam comparison</li>
+              <li>shorts length guide</li>
+              <li>cap fit measurement</li>
+              <li>jersey sizing notes</li>
+              <li>necklace length comparison</li>
+              <li>scarf dimensions guide</li>
+            </ul>
+          </section>
+          <section class="term-group" aria-labelledby="plan-terms">
+            <h3 id="plan-terms">Plan the shortlist</h3>
+            <ul>
+              <li>fashion product comparison sheet</li>
+              <li>shopping shortlist template</li>
+              <li>wardrobe gap checklist</li>
+              <li>outfit color coordination</li>
+              <li>product variant tracking</li>
+              <li>seller information checklist</li>
+              <li>shopping total cost estimate</li>
+              <li>international shipping budget</li>
+              <li>return policy comparison</li>
+              <li>product link organization</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <div class="wrap faq-layout">
+        <div>
+          <p class="eyebrow" style="color:var(--blue)">Clear answers</p>
+          <h2 id="faq-heading">Before you<br>save another find.</h2>
+        </div>
+        <div>
+          <details open>
+            <summary>What does Jayagoo spreadsheet mean on this page?</summary>
+            <p>Here, Jayagoo spreadsheet is the search topic for an independent fashion research guide. This page offers category shortcuts and comparison advice; it does not host an official Jayagoo spreadsheet or a downloadable product database.</p>
+          </details>
+          <details>
+            <summary>How should I organize a Jayagoo product list?</summary>
+            <p>Use one row per exact product variant. Record its source URL, category, color, selected size, measurements, displayed price and currency, date checked and any unresolved questions.</p>
+          </details>
+          <details>
+            <summary>Can a brand photograph confirm a listing is authentic?</summary>
+            <p>No. A brand photograph is a visual reference, not evidence of a seller’s inventory or a particular item’s authenticity. Check the seller, item-specific evidence and purchase terms separately.</p>
+          </details>
+          <details>
+            <summary>How do I estimate the total cost of a shortlist?</summary>
+            <p>Add item prices, domestic delivery, any service fees, international shipping and applicable taxes or duties. Record unknown charges as unknown rather than zero, and confirm the final amount before paying.</p>
+          </details>
+          <details>
+            <summary>Where do the category links lead?</summary>
+            <p>The category links open their specified CAFANS category pages. General discovery buttons open https://www.cafans.com.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="closing" aria-labelledby="closing-heading">
+        <div>
+          <h2 id="closing-heading">One good find is a better start.</h2>
+          <p>Choose a category, define the fit you need and keep your next shortlist deliberate.</p>
+        </div>
+        <a class="button" href="https://www.cafans.com">Continue to CAFANS <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="logo" href="https://www.cafans.com">www.<span>cafans</span>.com</a>
+      <p>Independent Jayagoo spreadsheet research guide. No affiliation with Jayagoo, Nike, Louis Vuitton, Gucci or Hermès is claimed. Product availability, prices, seller terms and delivery conditions must be checked at the destination. This page does not provide authentication services.</p>
+    </div>
+  </footer>
+</body>
+</html>
